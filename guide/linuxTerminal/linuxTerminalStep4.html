@@ -1,0 +1,120 @@
+<!--Type of Document - HTML5 -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>GNU/Linux терминал для самых маленьких - Часть 4</title>
+    <link rel="stylesheet" href="./style.css">
+ </head>
+
+ <body>
+	 <h3 align="center">Остановка и сворачивание процессов.</h3>
+	 <p>Выполнение любой программы можно остановить совсем или приостановить временно, с целью продолжить позже.</p>
+	 <p>1. Перед вводом следующей команды стоит сказать о двух комбинация клавиш, которые прерывают исполняемый процесс: <span class="button">[Ctrl+C]</span> и <span class="button">[Ctrl+D]</span>. По внутреннему содержанию они имеют отличия, но для пользователя им то, и другое останавливают выполнение программы.
+	 Для демонстрации введем уже знакомую команду 'cat' без параметров - это означает что поток ввода-вывода используется по умолчанию и весь введенный текст тут же появится на экране:</p>
+<div id="codebox">
+    <code>
+	    <b>user@Raven</b>:$ cat <b>[Enter]</b><br>
+	    input text from keyboard<br>
+	    hello world<br>
+    </code>
+</div>
+<p>Чтобы выйти из режима ввода, необходимо нажать указанные выше комбинации клавиш: <span class="button">[Ctrl+C]</span> или <span class="button">[Ctrl+D]</span>.</p>
+<p>2. Перейдем в каталог 'testconsole' и запустим редактор текста 'nano' с созданными ранее файлом, а затем свернем его в фоноывй режим сочетанием клавиш <span class="button">[Ctrl+Z]</span>:</p>
+<div id="codebox">
+    <code>
+	    <b>user@Raven</b>: cd testconsole <b>[Enter]</b><br>
+            <b>user@Raven</b>:~/testconsole$ nano readme.txt <b>[Enter]</b>
+    </code>
+</div>
+<p>3. Посмотреть список всех фоновый процессов можно с помощью команды "ps":</p>
+<div id="codebox">
+    <code>
+	    <b>user@Raven</b>:~/testconsole$ ps <b>[Enter]</b><br>
+	    PID TTY          TIME CMD<br>
+	    4263 pts/2    00:00:00 bash<br>
+	    4373 pts/2    00:00:00 nano<br>
+	    4374 pts/2    00:00:00 ps
+    </code>
+</div>
+<p>Свернутый в фоновый режим текстовый редактор 'nano' приостановил свою работу с идентификатором 4374.</p>
+<p>Теперь вновь запустим и выведем из фонового режима нашу программу с помощью команды "fg":</p>
+<div id="codebox">
+    <code>
+            <b>user@Raven</b>:~/testconsole$ fg nano <b>[Enter]</b>
+    </code>
+</div>
+<p>Выйти из программы 'nano' можно с сохранением результатов, нажимая последовательность клавиш <span class="button">[Ctrl+X]</span>, <span class="button">[Y]</span> и <span class="button">[Enter]</span>.</p>
+<p>3. Теперь запустим команду 'cat' без параметров и переведем ее в фоновый режим комбинаций клавиш <span class="button">[Ctrl+Z]</span>:</p>
+<div id="codebox">
+    <code>
+	    <b>user@Raven</b>:~/testconsole$ cat <b>[Enter] [Ctrl+Z]</b><br>
+	    ^Z<br>
+	    [1]+  Остановлен    cat
+    </code>
+</div>
+<p>В данной записи запись "^Z" означает комбинацию клавиш <span class="button">[Ctrl+Z]</span>.</p>
+<p>После чего выведем список всех процессов "ps":</p>
+<div id="codebox">
+    <code>
+	    <b>user@Raven</b>:~/testconsole$ ps <b>[Enter]</b><>br
+	     PID TTY          TIME CMD<br>
+	    4160 pts/2    00:00:00 bash<br>
+	    4188 pts/2    00:00:00 cat<br>
+	    4208 pts/2    00:00:00 ps
+    </code>
+</div>
+<p>С помощью команды 'kill' с ключом "-KILL" в качестве параметра и идентификатором процесса 'cat - 4188' (который указан выше в первом столбце) удалим полностью этот процесс:</p>
+<div id="codebox">
+    <code>
+            <b>user@Raven</b>:~/testconsole$ kill -KILL 4188  <b>[Enter]</b>
+    </code>
+</div>
+<p>Вновь посмотрим список процессов и увидим, что 'cat' действительно был остановлен:</p>
+<div id="codebox">
+    <code>
+            <b>user@Raven</b>:~/testconsole$ ps <b>[Enter]</b><>br
+             PID TTY          TIME CMD<br>
+            4160 pts/2    00:00:00 bash<br>
+	    4208 pts/2    00:00:00 ps<br>
+	    [1]+  Убито              cat
+    </code>
+</div>
+<p>4. В том случае, если было запущено и свернуто несколько одинаковых процессов вышеуказанным способом можно остановить процесс, но запустить его командой 'fg' не удасться. Нужно воспользоваться другим способом. Для начала запустим и свернем несколько команд 'cat':<p>
+<div id="codebox">
+    <code>
+            <b>user@Raven</b>:~/testconsole$ cat <b>[Enter] [Ctrl+Z]</b><br>
+            ^Z<br>
+	    [1]+  Остановлен    cat<br>
+	    <b>user@Raven</b>:~/testconsole$ cat <b>[Enter] [Ctrl+Z]</b><br>
+            ^Z<br>
+            [1]+  Остановлен    cat
+
+    </code>
+</div>
+<p>После этого воспользуемся командой jobs для просмотра идентификаторов процессов:</p>
+<div id="codebox">
+    <code>
+	    <b>user@Raven</b>:~/testconsole$ jobs <b>[Enter]</b><br>
+	    [1]-  Остановлен    cat<br>
+	    [2]+  Остановлен    cat
+    </code>
+</div>
+<p>Теперь чтобы вывести процесс из фонового режима, необходимо вызвать команду с параметром %"номер процесса", в нашем случае 1 или 2:</p>
+<div id="codebox">
+    <code>
+            <b>user@Raven</b>:~/testconsole$ fg %2 <b>[Enter]</b>
+    </code>
+</div>
+<p>Свернутая ранее программа теперь вышла на передний план и продолжила свою работу. Теперь завершим эти процессы используя комнду 'kill':</p>
+<div id="codebox">
+    <code>
+	    <b>user@Raven</b>:~/testconsole$ kill -KILL 4188  <b>[Enter]</b><br>
+	    <b>user@Raven</b>:~/testconsole$ kill -KILL 4189  <b>[Enter]</b>
+    </code>
+</div>
+	<p><a href="./linuxTerminalStep3.html"><< Часть 3</a> <a href="./linuxTerminalStep5.html">Часть 5>></a></p>
+ </body>
+</html>

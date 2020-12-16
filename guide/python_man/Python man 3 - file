@@ -1,0 +1,58 @@
+# Работа с файлами
+
+# Закрытие файла
+myfile.close()
+
+# Создание файла
+myfile = open("testfile.txt", "w")
+myfile.write("This first line in new file")
+myfile.write("This sexond line in new file")
+myfile.close()
+
+# Открытие файла
+myfile = open("testfile.txt")
+myfile.close()
+
+# Файл можно открыть в разных режимах:
+# "r" - режим чтения; по умолчанию; 
+# "w" - режим записи;
+# "а" - файл будет открыт в режиме добавления;
+# "b" - двоичный режим.
+myfile = open("testfile.txt", "w")
+
+# Чтение из файла
+myfile = open("testfile.txt", "r")
+cont = myfile.read()
+print(cont)
+myfile.close()
+
+# Чтение определенного количества байтов
+myfile = open("testfile.txt", "r")
+print(myfile.read(16))
+print(myfile.read())
+myfile.close()
+
+# Построчное чтение файла - способ 1
+myfile = open("testfile.txt", "r")
+print(myfile.readlines())
+myfile.close()
+
+# Построчное чтение файла - способ 2
+myfile = open("testfile.txt", "r")
+for line in myfile:
+    print(line)
+myfile.close()
+
+# Метод write возвращает количестао байт,записанных в файл
+amount_written = file.write(msg)
+
+# Работать с файлом желательно с перехватом исключений
+try:
+   f = open("filename.txt")
+   print(f.read())
+finally:
+   f.close()
+
+# Так же можно открыть файл используя цикл with 
+with open("filename.txt") as f:
+   print(f.read())

@@ -1,0 +1,26 @@
+#codebox {
+    border: 1px solid #2F4F4F;
+    padding: 1px;
+    background: DarkSeaGreen;   
+    background-clip: padding-box;
+    color: #2F4F4F;
+    }
+    }
+
+span.button {
+    font-weight: bold;
+    font-family: Century, serif;
+    font-size: 10pt;
+    color: #5F9EA0;
+}
+
+p {
+    text-indent: 20px;
+    }
+
+body {
+    font-family: Century, serif;
+    font-size:10pt;
+    color: #2F4F4F;
+    background: Azure;
+    }

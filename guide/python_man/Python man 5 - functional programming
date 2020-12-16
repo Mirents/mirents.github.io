@@ -1,0 +1,155 @@
+# Описание функций высшего порядка
+
+print(":1:")
+# Функция высшего порядка - та, которая принимает или возвращает другую функцию в качестве параметра
+def mult(func, arg):
+   return func(func(arg))
+
+def mnoj(x):
+   return x * 2
+
+print(mult(mnoj, 10))
+
+print("\n:2:")
+# Чистая функция
+def pure(x, y):
+  temp = x + 2*y
+  return temp / (2*x + y)
+print(pure(1, 2))
+
+# Нечистая функция
+test = []
+def impure(arg):
+  test.append(arg)
+impure(6)
+impure(2)
+print(test)
+
+print("\n:3:")
+# Лямбда-функция: в качестве параметра передается краткое выражение и слово lambda
+def my_func(f, arg):
+  return f(arg)
+
+print(my_func(lambda x: 2*x*x, 5))
+
+print("\n:4:")
+# Лямбда-функциям можно присваивать пепеменным и передавать их в качестве параметра
+double = lambda x: x * 2
+print(double(7))
+
+print("\n:4:")
+# map принимает в качечтве параметра функцию и итерируемый объект, к каждому элементу которого применяется указанная функция
+nums = [3, 1, 9, 6, 8, 4]
+print(nums)
+def add_one(x):
+  return x + 1
+result = list(map(add_one, nums))
+print(result)
+
+# Та же самая запись с помощью лямбда-выражения
+result = list(map(lambda x: x+1, nums))
+print(result)
+
+print("\n:5:")
+# filter использует функцию в качестве фильтра к списку, передаваемомк в качкстве параметра
+# Для работы с map и filter список преобразуется в list
+nums = [3, 1, 9, 6, 8, 4]
+res = list(filter(lambda x: x<6, nums))
+print(res)
+
+print("\n:6:")
+# Геннераторы используются для создания бесконнчных последовательностей
+def gener():
+  i=17
+  while i > 9:
+    yield i
+    i -= 1
+
+for i in gener():
+  print(i)
+
+print("\n:7:")
+# Декораторы используются для изменения поведения функции как временнр, так и постоянно
+def print_text(func):
+    def result_text():
+        print('start page')
+        func()
+    return result_text
+
+def start():
+    print('work')
+
+res = print_text(start)
+res()
+
+# Чтобы постоянно изменить исходную функцию декорированной, нужно опять присвоить ей значание декорированной функции
+start = print_text(start)
+start()
+
+# У функции может быть несколько декораторов, можно так же присвоить как и выше функции постоянный декоратор
+@print_text
+def print_exit():
+    print('exit')
+print_exit()
+
+print("\n:8:")
+# Рекурсия используется для вызова функцией самой себя или другой функции до выполнения определенное условие
+def factorial(x):
+  if x == 1:
+    return 1
+  else: 
+    return x * factorial(x-1)
+
+print(factorial(5))
+
+print("\n:9:")
+# Множества, подобно спискам и кортежам, только не имеют повторяющиеся элементы, не проиндексированы и не содержат дубликатов
+num_set = {1, 2, 3, 4, 5}
+word_set = set(["spam", "eggs", "sausage"])
+
+# Используются функции add, remove для добавления и удаления элементов
+nums = {1, 2, 1, 3, 1, 4, 5, 6}
+print(nums)
+nums.add(-7)
+nums.remove(3)
+print(nums)
+
+# С множествами можно производить операции:
+# '|' - объединяет два множества в одно, содержащее все элементы двух множеств
+# '&' - возвращает только элементы, находящиеся в обоих множествах
+# '-' - возвращает элементы только с первого множества. 
+# '^' возвращает все элементы с обоих множеств, кроме принадлежащих одновременно обоим
+
+first = {1, 2, 3, 4, 5, 6}
+second = {4, 5, 6, 7, 8, 9}
+print(first | second)
+print(first & second)
+print(first - second)
+print(second - first)
+print(first ^ second)
+
+print("\n:9:")
+# Модуль itertools
+# Функция count создает бесконечную прогрессию вверх от заданного числа. 
+# Функция cycle бесконечное число раз перебирает итерируемый объект (например, список или строку). 
+# Функция repeat повторяет объект бесконечное или заданное количество раз.
+from itertools import count
+for i in count(3):
+  print(i)
+  if i >=11:
+    break
+
+# Функции, схожие с map и filter
+# takewhile - возвращает элементы из итерируемого объекта, которые удовлетворяют предикативной функции; 
+# chain - объединяет несколько итерируемых объектов в один; 
+# accumulate - возвращает сумму значений внутри итерируемого объекта.
+from itertools import accumulate, takewhile
+nums = list(accumulate(range(8)))
+print(nums)
+print(list(takewhile(lambda x: x<= 6, nums)))
+
+# Функции комбинаторики, пепебирают все возможгые варианты
+from itertools import product, permutations
+letters = ("A", "B")
+print(list(product(letters, range(2))))
+print(list(permutations(letters)))
