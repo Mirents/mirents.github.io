@@ -1,2 +1,1 @@
-# vadmih.github.io
-Demo page
+My little site in the endless expanses of the Internet.
