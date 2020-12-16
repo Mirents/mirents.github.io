@@ -13,50 +13,250 @@ span.button {
     color: #5F9EA0;
 }
 
-p {
-    text-indent: 20px;
-    }
-
-body {
+/*body {
     font-family: Century, serif;
     font-size:12pt;
     color: #2F4F4F;
     background: Azure;
-    }
+    }*/
 
-.mainmenubtn {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10 px; 
+*, *:after, *:before {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+transition: .5s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+ul {
+list-style: none;
 }
 
-.dropdown-child {
-    position: fixed;
-    display: none;
-    background-color: black;
-    min-width: 150px;
+a {
+text-decoration: none;
+outline: none;
 }
 
-.dropdown-child a {
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
+footer {
+padding: 30px 0;
+background: #3C3D41;
+color: white;
+}
+.footer-col {
+width: 33.3333333333%;
+float: left;
+text-align: center;
+}
+.footer-col a {
+color: red;
+}
+.footer-col:last-child {
+text-align: center;
 }
 
-.dropdown:hover .dropdown-child {
-    display: block;
+header:after, .container:after, footer:after {
+content: "";
+display: table;
+clear: both;
+} 
+
+body {
+font-family: 'Open Sans', arial, sans-serif;
+font-size: 14px;
+line-height: 1;
+color: #373737;
+background: #f7f7f7;
 }
 
-.dropdown-child a:hover {
-    color: yellow;
-    background-color: blue;
-    display: block;
+header {
+width: 100%;
+background: LightSlateGray; /* Цвет верхнего меню*/
+box-shadow: 3px 3px 1px rgba(0,0,0,.05);
+padding: 15px 0;
+margin-bottom: 30px;
+position: relative;
+}
+
+.container {
+margin: 0 auto;
+width: 100%;
+max-width: 930px; /*Ширина основного блока в полноэкранном режиме*/
+padding: 0 15px;
+color: AliceBlue; /*Цвет текста постов*/
+background: LightSlateGray;/*Цвет фона постов*/
+} 
+
+#menu {
+float: right;
+}
+#menu li {
+display: inline-block;
+margin-right: 30px;
+}
+#menu a {
+color: red; /*Цвет букв в меню*/
+background: yellow; /*Цвет фона в меню*/
+text-transform: uppercase;
+letter-spacing: 1px;
+font-weight: 600;
+display: block;
+line-height: 40px;
+}
+#menu a:hover {
+color: AliceBlue; /*Цвет выделенного пункта меню*/
+}
+#menu li:last-child  {
+margin-right: 0;
+}
+
+.nav-toggle {
+display: none;
+position: relative;
+float: right;
+width: 40px;
+height: 40px;
+margin-left: 20px;
+background: Teal; /*Цвет фона гамбургера*/
+cursor: pointer;
+}
+.nav-toggle span {
+display: block;
+position: absolute;
+top: 19px;
+left: 8px;
+right: 8px;
+height: 2px;
+background: yellow; /*Цвет средней полосы в гамбургере*/
+}
+.nav-toggle span:before, .nav-toggle span:after {
+content: "";
+position: absolute;
+display: block;
+left: 0;
+width: 100%;
+height: 2px;
+background: yellow; /*Цвет верхней и нижней полосы в гамбургере*/
+}
+.nav-toggle span:before {
+top: -10px;
+}
+.nav-toggle span:after {
+bottom: -10px;
+}
+#menu.active {
+max-height: 123px;
+}
+
+.posts-list {
+margin-bottom: 30px;
+float: left;
+}
+/* блок для статьи */
+.post {
+margin-bottom: 35px;
+}
+.post-content p {
+line-height: 1.5;
+padding-bottom: 1em;
+}
+.post-image {
+margin-bottom: 30px;
+}
+.category {
+margin-bottom: 15px;
+}
+.category a {
+color: #F8B763; /*Цвет категорий в блоке*/
+text-transform: uppercase;
+}
+.post-title {
+margin-bottom: 12px;
+font-size: 26px;
+}
+/* блок с кнопкой "продолжить чтение" и кнопками социальных сетей */
+.post-footer {
+border-top: 1px solid #EBEBE3; /*Цвет верхней полосы у кнопки "Продолжить чтение"*/
+border-bottom: 1px solid #EBEBE3; /*Цвет нижней полосы у кнопки "Продолжить чтение"*/
+position: relative;
+margin-top: 15px;
+}
+
+.more-link {
+position: relative;
+display: inline-block;
+font-size: 10px;
+text-transform: uppercase;
+color: white;
+line-height: 44px;
+padding: 0 22px;
+background: #3C3D41;
+letter-spacing: 0.1em;
+white-space: nowrap;
+}
+.more-link:after {
+content: '';
+display: block;
+position: absolute;
+width: 0;
+height: 0;
+top: 0;
+right: 0;
+border: solid transparent;
+border-width: 22px 18px;
+border-left-color: #3C3D41;
+transform: translateX(100%);
+}
+
+@media (max-width: 768px) {
+/* показываем кнопку для переключения верхней навигации */
+.nav-toggle {
+display: block;
+}
+
+/* скрываем верхнее меню, отменяем обтекание, позиционируем его, сместив на высоту шапки сайта */ 
+#menu {
+max-height: 0;
+background: white;
+float: none;
+position: absolute;
+overflow: hidden;
+top: 63px;
+right: 0;
+left: 0;
+margin: 0;
+padding: 0;
+z-index: 3;
+}
+/* делаем элементы списка блочными, чтобы они располагались друг под другом */
+#menu li {
+display: block;
+text-align: center;
+border-bottom: 1px solid #EBEBE3;
+margin-right: 0;
+}
+/* отменяем обтекание левой и правой колонок, устанавливаем им ширину 100%*/
+.posts-list {
+width: 100%;
+float: none;
+}
+}
+
+@media (max-width: 480px) {
+/* убираем верхнюю и нижнюю границы и выравниваем кнопку по центру */
+.post-footer {
+border-top: none;
+border-bottom: none;
+text-align: center;
+}
+
+/* отменяем обтекание для столбцов подвала страницы */
+.footer-col {
+float: none;
+margin-bottom: 20px;
+width: 100%;
+text-align: center;
+}
+.footer-col:last-child {
+text-align: center;
+margin-bottom: 0;
+}
 }

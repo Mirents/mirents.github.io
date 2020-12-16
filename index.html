@@ -8,28 +8,75 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Руководство Git</title>
+  <title>Mirents</title>
   <link rel="stylesheet" href="./css/style.css">
-
-  <div class="dropdown">
-  <button class="mainmenubtn">Главное меню</button>
-  <div class="dropdown-child">
-    <a href="http://www.вашдомен.ru/page1.html">Тестирование</a>
-    <a href="http://www.вашдомен.ru/page2.html">Linux</a>
-    <a href="http://www.вашдомен.ru/page3.html">Java+Selenium</a>
-    <a href="http://www.вашдомен.ru/page4.html">python</a>
-    <a href="http://www.вашдомен.ru/page5.html">git</a>
-  </div>
-</div>
-
- </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
 
  <!---->
- <!-- Background color of page-->
- <body bgcolor="BBCCDD">
-   <p><a href="gitguide.html">Сокращенное руководство</a> по основным командам Git.</p>
-   <p><a href="oop.html">Базовые и расширенные</a> принципы ООП.</p>
-   <p><a href="histwork.html">Краткая история</a> и принцип работы.</p>
-   <p>Полезное.</p>
+ <body>
+  <header>
+    <nav class="container">
+      <div class="nav-toggle"><span></span></div>
+      <ul id="menu">
+        <li><a href="">Блог</a></li>
+        <li><a href="">Портфолио</a></li>
+        <li><a href="">Об авторе</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div class="container">
+  <div class="posts-list">
+    <article id="post-1" class="post">
+      <div class="category"><a href="">Дизайн</a></div>
+        <h2 class="post-title">Весна</h2>
+        <p>Начинаются оттепели, ростепели, капели с крыш. Снег делается зернистым, ноздреватым, оседает и чернеет. Его съедают туманы. Постепенно развозит дороги, наступает распутица, бездорожье. На реках появляются во льду первые промоины с черной водой, а на буграх — проталины и проплешины. По краю слежавшегося снега уже желтеет мать-и-мачеха.</p>
+          <div class="post-footer">
+            <a class="more-link" href="">Продолжить чтение</a>
+          </div>
+    </article>
+    <article id="post-2" class="post">
+      <div class="category"><a href="">Дизайн</a></div>
+        <h2 class="post-title">Весна</h2>
+        <p>Начинаются оттепели, ростепели, капели с крыш. Снег делается зернистым, ноздреватым, оседает и чернеет. Его съедают туманы. Постепенно развозит дороги, наступает распутица, бездорожье. На реках появляются во льду первые промоины с черной водой, а на буграх — проталины и проплешины. По краю слежавшегося снега уже желтеет мать-и-мачеха.</p>
+          <div class="post-footer">
+            <a class="more-link" href="">Продолжить чтение</a>
+          </div>
+    </article>
+    <article id="post-3" class="post">
+      <div class="category"><a href="">Дизайн</a></div>
+        <h2 class="post-title">Весна</h2>
+        <p>Начинаются оттепели, ростепели, капели с крыш. Снег делается зернистым, ноздреватым, оседает и чернеет. Его съедают туманы. Постепенно развозит дороги, наступает распутица, бездорожье. На реках появляются во льду первые промоины с черной водой, а на буграх — проталины и проплешины. По краю слежавшегося снега уже желтеет мать-и-мачеха.</p>
+          <div class="post-footer">
+            <a class="more-link" href="">Продолжить чтение</a>
+          </div>
+    </article>
+    <article id="post-4" class="post">
+      <div class="category"><a href="">Дизайн</a></div>
+        <h2 class="post-title">Весна</h2>
+        <p>Начинаются оттепели, ростепели, капели с крыш. Снег делается зернистым, ноздреватым, оседает и чернеет. Его съедают туманы. Постепенно развозит дороги, наступает распутица, бездорожье. На реках появляются во льду первые промоины с черной водой, а на буграх — проталины и проплешины. По краю слежавшегося снега уже желтеет мать-и-мачеха.</p>
+          <div class="post-footer">
+            <a class="more-link" href="">Продолжить чтение</a>
+          </div>
+    </article>
+
+<footer>
+  <div class="container">
+    <div class="footer-col"><span>Тестирование ПО © 2020</span></div>
+    <div class="footer-col">
+      <a href="vk.com">vk.com</a>
+    </div>
+    <div class="footer-col">
+      <a href="mailto:mirent@mail.ru">Написать письмо</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+$('.nav-toggle').on('click', function(){
+  $('#menu').toggleClass('active');
+});
+</script>
  </body>
 </html>
