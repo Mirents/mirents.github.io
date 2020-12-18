@@ -54,7 +54,7 @@ position: relative;
 .container {
 margin: 0 auto;
 width: 100%;
-max-width: 930px; /*Ширина основного блока в полноэкранном режиме*/
+max-width: 1200px; /*Ширина основного блока в полноэкранном режиме*/
 padding: 0 15px;
 } 
 
@@ -124,33 +124,35 @@ margin-bottom: 15px;
 float: left;
 background: #F0FFFF; /*Цвет фона постов*/
 }
+
 /* блок для статьи */
 .post {
-margin-bottom: 35px;
+margin-bottom: 15px;
 color: #3C3D41; /*Цвет текста постов*/
 }
 
 .post-content p {
 line-height: 1.5;
 padding-bottom: 1em;
-margin-left: 10px;
-margin-right: 10px;
+padding-left: 10px;
+padding-right: 10px;
 }
 .post-image {
 margin-bottom: 30px;
 }
 .category {
-margin-bottom: 10px;
-margin-top: 10px;
-margin-left: 20px;
+padding-bottom: 10px;
+padding-top: 10px;
+padding-left: 20px;
 }
 .category a {
 color: #8B4513; /*Цвет категорий в блоке*/
 text-transform: uppercase;
 }
 .post-title {
-margin-bottom: 12px;
-margin-left: 15px;
+padding-bottom: 12px;
+padding-left: 15px;
+padding-top: 15px;
 font-size: 26px;
 }
 /* блок с кнопкой "Продолжить чтение" */
@@ -158,7 +160,7 @@ font-size: 26px;
 border-top: 1px solid #EBEBE3; /*Цвет верхней полосы у кнопки "Продолжить чтение"*/
 border-bottom: 1px solid #EBEBE3; /*Цвет нижней полосы у кнопки "Продолжить чтение"*/
 position: relative;
-margin-top: 15px;
+/*margin-top: 15px;*/
 }
 
 .more-link {
@@ -231,14 +233,27 @@ text-align: center;
 border-top: 1px solid #EBEBE3;
 margin-right: 0;
 }
-/* отменяем обтекание левой и правой колонок, устанавливаем им ширину 100%*/
-/*.posts-list {
-width: 100%;
-float: none;
-}*/
 }
 
 @media (max-width: 480px) {
+.container {
+padding: 0;
+}
+
+header {
+margin-bottom: 0;
+}
+
+.posts-list {
+margin-bottom: 0;
+width: 100%;
+}
+
+.post {
+margin-bottom: 15px;
+color: #3C3D41; /*Цвет текста постов*/
+}
+
 /* убираем верхнюю и нижнюю границы и выравниваем кнопку по центру */
 .post-footer {
 border-top: none;
@@ -256,10 +271,5 @@ text-align: center;
 .footer-col:last-child {
 text-align: center;
 margin-bottom: 0;
-}
-
-.posts-list {
-margin-bottom: 15px;
-width: 100%;
 }
 }
