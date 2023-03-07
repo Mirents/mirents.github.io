@@ -1,0 +1,5 @@
+import { log } from "../utils/utils";
+
+document.addEventListener('DOMContentLoaded', function() {
+	log('123');
+});

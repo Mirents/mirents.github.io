@@ -2,82 +2,46 @@
 <!DOCTYPE html>
 
 <!-- Container for web page document -->
-<html>
+<html lang="ru">
 
  <!-- Page title and technical information -->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Главная</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<title>QA Tools</title>
+	<meta charset=utf-8>
+	<link href="./bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
  <!---->
  <body>
-  <header>
-    <nav class="container">
-      <div class="nav-toggle"><span></span></div>
-      <ul id="menu">
-        <li><a href="./qa/index.html">Тестирование</a></li>
-        <li><a href="./prgmng/index.html">Программирование</a></li>
-        <li><a href="./other/index.html">Разное</a></li>
-        <li><a href="./index.html">На главную</a></li>
-      </ul>
-    </nav>
-  </header>
+	<header>
+		<nav class="navbar sticky-top navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand">QA Tools - General</a>
+			</div>
+		</nav>
+	</header>
+	
+	<div class="row row-cols-1 row-cols-md-2 g-0">
+	  <div class="col" style="padding: 10px;">
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">Knowledge Base</h5>
+			<p class="card-text">Ссылки на ресурсы и статьи по тестированию</p>
+			<a href="./knowledge-base/knowledge-base.html" class="btn btn-primary">Перейти</a>
+		  </div>
+		</div>
+	  </div>
+	  <div class="col" style="padding: 10px;">
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">HAR-viewer</h5>
+			<p class="card-text">Просмотр HAR-файлов с фильтрацией запросов и ответов</p>
+			<a href="./har-viewer/options.html" class="btn btn-primary">Перейти</a>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
-<div class="container">
-  <div class="posts-list">
-    <article id="post-1" class="post">
-      <div class="post-content">
-      <!-- <div class="category"><a href="">Категория</a></div> -->
-        <h2 class="post-title">Тестирование</h2>
-        <p>Ручное тестирование web-сайтов и мобильных приложений на платформе Android. Описание, порядок установки и опыт использования различных инструментов для тестирования. Отчеты о тестировании различных сайтов с применением различных техник тест-дизайна, а так же публикация отчетов о тестировании и найденных багов с уведомлением разработчика или собственника ресурса.</p>
-          <div class="post-footer">
-            <a class="more-link" href="./qa/index.html">Перейти</a>
-          </div>
-      </div>
-    </article>
-    <article id="post-2" class="post">
-      <div class="post-content">
-      <!-- <div class="category"><a href="">Категория</a></div> -->
-        <h2 class="post-title">Программирование</h2>
-        <p>Список полезных ссылок на тему программирования и примеры разработанных программ. </p>
-          <div class="post-footer">
-            <a class="more-link" href="./prgmng/index.html">Перейти</a>
-          </div>
-      </div>
-    </article>
-    <article id="post-3" class="post">
-      <div class="post-content">
-      <!-- <div class="category"><a href="">Категория</a></div> -->
-        <h2 class="post-title">Разное</h2>
-        <p>Информация об авторе и этапах создания данного ресурса.</p>
-          <div class="post-footer">
-            <a class="more-link" href="./other/index.html">Перейти</a>
-          </div>
-      </div>
-    </article>
-  </div>
-</div>
-
-<footer>
-  <div class="container">
-    <div class="footer-col"><a>Mirents © 2020</a></div>
-    <div class="footer-col">
-      <a href="vk.com">vk.com</a>
-    </div>
-    <div class="footer-col">
-      <a href="mailto:mirent@mail.ru">Написать письмо</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-$('.nav-toggle').on('click', function(){
-  $('#menu').toggleClass('active');
-});
-</script>
+	<script src="./bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
  </body>
 </html>
