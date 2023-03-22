@@ -708,37 +708,37 @@ function createCheckboxAndLabel(labelText, attributesCheckbox) {
 	return result;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.querySelector('#drop-area').addEventListener('dragover', (event) => {
-		event.stopPropagation();
-		event.preventDefault();
-		document.querySelector('.overlay').classList.remove('hidden');
-		event.dataTransfer.dropEffect = 'copy';
-	});
-	document.querySelector('#drop-area').addEventListener('drop', async (event) => {
-		event.stopPropagation();
-		event.preventDefault();
-		document.querySelector('.overlay').classList.add('hidden');
-		var fileList = event.dataTransfer.files;
-		var file = fileList[0];
-		await opener.openFileAndUpdateData(file);
-		send();
-	});
-	document.querySelector('.overlay').addEventListener('dragleave', (event) => {
-		event.stopPropagation();
-		event.preventDefault();
-		document.querySelector('.overlay').classList.add('hidden');
-	});
+// document.addEventListener('DOMContentLoaded', function() {
+// 	document.querySelector('#drop-area').addEventListener('dragover', (event) => {
+// 		event.stopPropagation();
+// 		event.preventDefault();
+// 		document.querySelector('.overlay').classList.remove('hidden');
+// 		event.dataTransfer.dropEffect = 'copy';
+// 	});
+// 	document.querySelector('#drop-area').addEventListener('drop', async (event) => {
+// 		event.stopPropagation();
+// 		event.preventDefault();
+// 		document.querySelector('.overlay').classList.add('hidden');
+// 		var fileList = event.dataTransfer.files;
+// 		var file = fileList[0];
+// 		await opener.openFileAndUpdateData(file);
+// 		send();
+// 	});
+// 	document.querySelector('.overlay').addEventListener('dragleave', (event) => {
+// 		event.stopPropagation();
+// 		event.preventDefault();
+// 		document.querySelector('.overlay').classList.add('hidden');
+// 	});
 	
-	/*document.addEventListener('click', function(e) {
-		var checkboxes = document.querySelector('#checkboxes');
-		log('e !== checkboxes === ' + (e.target !== checkboxes));
-		if (expanded && e.target !== checkboxes) {
-			checkboxes.style.display = "none";
-			expanded = false;
-		}
-	}, false);*/
-});
+// 	/*document.addEventListener('click', function(e) {
+// 		var checkboxes = document.querySelector('#checkboxes');
+// 		log('e !== checkboxes === ' + (e.target !== checkboxes));
+// 		if (expanded && e.target !== checkboxes) {
+// 			checkboxes.style.display = "none";
+// 			expanded = false;
+// 		}
+// 	}, false);*/
+// });
 
 // let opener = new Opener();
 	
