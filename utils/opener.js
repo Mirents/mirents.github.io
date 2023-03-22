@@ -430,6 +430,8 @@ function getValueToPath(path, object) {
 }
 
 function updateFilters(obj) {
+	console.log(">>>")
+	console.log(obj)
 	var elementsRequestMethods = document.querySelectorAll('#dropdownItemRequestMethods');
 	var len = elementsRequestMethods.length;
 	var filtersRequestMethod = new Array();
