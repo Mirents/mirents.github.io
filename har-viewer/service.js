@@ -1,4 +1,4 @@
-import { log } from "../libs/utils.js";
+import { log } from "../utils/utils.js";
 import { ERROR_MESSAGE, INFO_MESSAGE, WARN_MESSAGE, SUCCESS_MESSAGE, FILE_OPTIONS } from "../libs/consts.js";
 
 export function showMessage(text, color) {

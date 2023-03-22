@@ -1,0 +1,189 @@
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+	width: 100%;
+	max-width: 90%;
+	padding: 0 15px;
+}
+
+.sansserif {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #5d7093;
+}
+
+.global_block {
+	box-sizing: border-box;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid rgb(75 76 129 / 46%);
+	background: rgb(238 238 238);
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 15px;
+	border-radius: 5px;
+}
+
+.overlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	background-color: rgba(0,0,0,.5);
+	color: #fff;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+.overlay.hidden {
+	display: none;
+}
+
+.overlay > div {
+	border: 2px dashed #fff;
+	background-color: rgba(255,255,255,.1);
+	padding: 40px;
+	font-size: 30px;
+	border-radius: 30px;
+	pointer-events: none;
+}
+
+#snackbar {
+	visibility: hidden;
+	color: #000000;
+	text-align: center;
+	font-size: 14px;
+	text-decoration: none;
+	border-radius: 2px;
+	padding: 16px;
+	position: fixed;
+	z-index: 1;
+	left: 30%;
+	right: 30%;
+	bottom: 30px;
+}
+
+#snackbar.show {
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 3.5s;
+	animation: fadein 0.5s, fadeout 0.5s 3.5s;
+}
+
+@webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+}
+
+@webkit-keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+}
+
+details {
+	margin-top: 10;
+	margin-bottom: 10;
+}
+
+details > summary {
+	padding: 2px 6px;
+	background-color: #ddd;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+details > pre {
+	box-sizing: border-box;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid rgb(75 76 129 / 46%);
+	background: rgb(255 255 255 / 79%);
+	overflow: auto;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+details[open] > summary {
+	background-color: #87aee373;
+}
+
+/*.container input {
+	font-size: 15px;
+	width: 180px;
+	margin-bottom: 5px;
+}*/
+
+h4 {
+	word-wrap: break-word;
+}
+
+.topbutton {
+	width: 36px;
+	border: 2px solid #ccc;
+	background: #f7f7f7;
+	text-align: center;
+	padding: 10px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	cursor: pointer;
+	color: #333;
+	font-family: verdana;
+	font-size: 12px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+
+.inputMethod {
+	
+}
+
+.multiselect {
+  width: 110px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+	display: none;
+	border: 1px #dadada solid;
+	position: absolute;
+	width: inherit;
+	background: white;
+}
+
+#checkboxes label {
+  display: block;
+  padding: 3px;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+#checkboxes input {
+	position: absolute;
+	left: 90px;
+}

@@ -1,5 +1,5 @@
-import { log } from "../../utils.js";
-import { ERROR_MESSAGE, INFO_MESSAGE, WARN_MESSAGE, SUCCESS_MESSAGE, FILE_OPTIONS } from "../../consts.js";
+import { log } from "../utils/utils.js";
+import { ERROR_MESSAGE, INFO_MESSAGE, WARN_MESSAGE, SUCCESS_MESSAGE, FILE_OPTIONS } from "../libs/consts.js";
 
 import { importOpener } from "./opener.js";
 
