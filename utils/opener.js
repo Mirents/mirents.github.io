@@ -46,9 +46,9 @@ export default class Opener {
 
 		createBottomElementsForOffcanvas();
 		
-		document.querySelector('#buttonConfirm').addEventListener('click', function() { updateFilters(opener) });
+		document.querySelector('#buttonConfirm').addEventListener('click', function() { updateFilters() });
 		
-		updateFilters(this);
+		updateFilters();
 	}
 	
 	updateActivites(key) {
@@ -329,6 +329,49 @@ export default class Opener {
 				}
 			);
 		}
+	}
+
+	updateFilters() {
+		console.log(">>>")
+		console.log(this)
+		var elementsRequestMethods = document.querySelectorAll('#dropdownItemRequestMethods');
+		var len = elementsRequestMethods.length;
+		var filtersRequestMethod = new Array();
+		var filters = {};
+			
+		for (var i = 0; i < len; i++) {
+			if (elementsRequestMethods[i]['classList'].contains('active')) {
+				filtersRequestMethod.push(elementsRequestMethods[i].textContent.toLowerCase());
+			}
+		}
+		
+		var elementsResponseStatuses = (document.querySelectorAll('#dropdownItemResponseStatuses'));
+		var len = elementsResponseStatuses.length;
+		var filtersResponseStatuses = new Array();
+		
+		for (var i = 0; i < len; i++) {
+			if (elementsResponseStatuses[i]['classList'].contains('active')) {
+				filtersResponseStatuses.push(elementsResponseStatuses[i].textContent.toLowerCase());
+			}
+		}
+		
+		var elementsFormControlText = (document.querySelectorAll('.form-control'));
+		var filtersFormControlText = new Array();
+		
+		for (var i = 0; i < elementsFormControlText.length; i++) {
+			if (elementsFormControlText[i].disabled) {
+				
+			}
+			filtersFormControlText.push(elementsFormControlText[i].value);
+		}
+	
+		filters['request.method'] = filtersRequestMethod;
+		filters['response.status'] = filtersResponseStatuses;
+		
+		this.clearData();
+		this.filter(filters);
+		this.filterContainsText('request.url', filtersFormControlText);
+		this.showData();
 	}
 }
 
