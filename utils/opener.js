@@ -46,9 +46,9 @@ export default class Opener {
 
 		createBottomElementsForOffcanvas();
 		
-		document.querySelector('#buttonConfirm').addEventListener('click', function() { updateFilters() });
+		document.querySelector('#buttonConfirm').addEventListener('click', function() { this.updateFilters() });
 		
-		updateFilters();
+		this.updateFilters();
 	}
 	
 	updateActivites(key) {
