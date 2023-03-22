@@ -5,7 +5,7 @@ const SUCCESS_MESSAGE = { "backgroundColor": '#DDFFDD', "borderLeft": '6px solid
 
 const FILE_OPTIONS = { types: [{ description: "json and txt files", accept: { "text/plain": [".json", ".txt"] } }] };
 
-export class Opener {
+export default class Opener {
 	validUrls = ['c.amazon-adsystem.com', 'static.wikia.nocookie.net'];
 	entriesData = new Array();
 	entriesDataFiltering = new Array();

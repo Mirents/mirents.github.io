@@ -36,4 +36,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let opener = new Opener();
-// let opener = importOpener;
