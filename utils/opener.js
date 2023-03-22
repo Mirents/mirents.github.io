@@ -5,7 +5,7 @@ const SUCCESS_MESSAGE = { "backgroundColor": '#DDFFDD', "borderLeft": '6px solid
 
 const FILE_OPTIONS = { types: [{ description: "json and txt files", accept: { "text/plain": [".json", ".txt"] } }] };
 
-class Opener {
+export class Opener {
 	validUrls = ['c.amazon-adsystem.com', 'static.wikia.nocookie.net'];
 	entriesData = new Array();
 	entriesDataFiltering = new Array();
@@ -331,8 +331,6 @@ class Opener {
 		}
 	}
 }
-
-
 
 //*********************************************************************************************************************************
 function createListResponseStatusCodes(idDropdown, idDropdownItem, header, values) {
@@ -742,22 +740,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}, false);*/
 });
 
-let opener = new Opener();
-
-function send() {
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs){
-		log('options -> XXX: Отправлено сообщение: X1');
-		chrome.tabs.sendMessage(tabs[0].openerTabId, { textmessage: "X1" }, function (response) {
-			log('XXX -> options: Получен ответ на X1: ' + response.textmessage);
-		});
-	});
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs){
-		log('options -> XXX: Отправлено сообщение: X2');
-		chrome.tabs.sendMessage(tabs[0].id, { textmessage: "X2" }, function (response) {
-			log('XXX -> options: Получен ответ на X2: ' + response.textmessage);
-		});
-	});
-}
+// let opener = new Opener();
 	
 // Сервисные функции
 //================================================================================================

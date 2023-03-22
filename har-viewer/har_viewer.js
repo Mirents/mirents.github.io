@@ -1,7 +1,7 @@
 import { log } from "../utils/utils.js";
 import { ERROR_MESSAGE, INFO_MESSAGE, WARN_MESSAGE, SUCCESS_MESSAGE, FILE_OPTIONS } from "../libs/consts.js";
 
-import { importOpener } from "./opener.js";
+import Opener from '../utils/opener.js';
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.querySelector('#drop-area').addEventListener('dragover', (event) => {
@@ -35,21 +35,5 @@ document.addEventListener('DOMContentLoaded', function() {
 	}, false);*/
 });
 
-//let opener = new Opener();
-let opener = importOpener;
-
-// Пересылка ообщений внутри расширения
-function send() {
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs){
-		log('options -> XXX: Отправлено сообщение: X1');
-		chrome.tabs.sendMessage(tabs[0].openerTabId, { textmessage: "X1" }, function (response) {
-			log('XXX -> options: Получен ответ на X1: ' + response.textmessage);
-		});
-	});
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs){
-		log('options -> XXX: Отправлено сообщение: X2');
-		chrome.tabs.sendMessage(tabs[0].id, { textmessage: "X2" }, function (response) {
-			log('XXX -> options: Получен ответ на X2: ' + response.textmessage);
-		});
-	});
-}
+let opener = new Opener();
+// let opener = importOpener;
