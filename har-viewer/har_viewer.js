@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		var fileList = event.dataTransfer.files;
 		var file = fileList[0];
 		await opener.openFileAndUpdateData(file);
-		send();
 	});
 	document.querySelector('.overlay').addEventListener('dragleave', (event) => {
 		event.stopPropagation();
